@@ -1,0 +1,114 @@
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(120deg, #1e1d1d);
+  animation: backgroundMove 15s infinite alternate;
+}
+
+/* Calculator container with glow effect */
+.calculator {
+  position: relative;
+  width: 320px;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  z-index: 1;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Glowing moving border */
+.calculator::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    #ff0080,
+    #7928ca,
+    #2afadf,
+    #067069,
+    #ff8c00,
+    #ff0080
+  );
+  animation: rotateGlow 6s linear infinite;
+  z-index: -1;
+  filter: blur(80px);
+  opacity: 0.6;
+}
+
+@keyframes rotateGlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Display screen */
+#display {
+  width: 100%;
+  height: 60px;
+  background: #ffffff20;
+  color: #000;
+  border: none;
+  border-radius: 12px;
+  text-align: right;
+  padding: 10px;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Button grid */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+/* Buttons with colorful gradient and hover effect */
+button {
+  padding: 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  color: #fff;
+  background-image: linear-gradient(135deg, #8e2de2, #4a00e0);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.4s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-image: linear-gradient(135deg, #00c6ff, #0072ff);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* Zero button spans 2 columns */
+.zero {
+  grid-column: span 2;
+}
