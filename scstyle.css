@@ -1,15 +1,4 @@
-
-/* body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(120deg, #1e1d1d);
-  animation: backgroundMove 15s infinite alternate;
-} */
- body {
+body {
   margin: 0;
   height: 100vh;
   display: flex;
@@ -17,47 +6,57 @@
   align-items: center;
   justify-content: center;
   font-family: 'Segoe UI', sans-serif;
-  background: url('image\ copy\ 2.png') no-repeat center center fixed;
+  background: url('image\ copy.png') no-repeat center center fixed;
   background-size: cover;
 }
-.navigation {
+
+/* Title outside the calculator */
+.main-title {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #000;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
   margin-bottom: 20px;
-  text-align: center;
+  z-index: 2;
+}
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
 }
 
-.navigation button {
-  margin: 10px;
-  padding: 12px 20px;
+.back-button button {
+  padding: 10px 16px;
   font-size: 1rem;
   font-weight: bold;
-  color: white;
   background: linear-gradient(135deg, #8e2de2, #4a00e0);
+  color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: background 0.3s ease;
 }
 
-.navigation button:hover {
+.back-button button:hover {
   background: linear-gradient(135deg, #00c6ff, #0072ff);
 }
 
-
-/* Calculator container with glow effect */
+/* Calculator box */
 .calculator {
   position: relative;
-  width: 320px;
-  padding: 20px;
+  width: 360px;
+  padding: 25px;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(15px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   z-index: 1;
-  animation: fadeIn 1s ease-in-out;
 }
 
-/* Glowing moving border */
+/* Glowing animated background */
 .calculator::before {
   content: "";
   position: absolute;
@@ -89,17 +88,6 @@
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 /* Display screen */
 #display {
   width: 100%;
@@ -115,19 +103,19 @@
   box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.2);
 }
 
-/* Button grid */
+/* Buttons grid */
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
 }
 
-/* Buttons with colorful gradient and hover effect */
+/* Buttons */
 button {
-  padding: 20px;
+  padding: 18px;
   border: none;
   border-radius: 12px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #fff;
   background-image: linear-gradient(135deg, #8e2de2, #4a00e0);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -135,13 +123,9 @@ button {
   transition: transform 0.2s, box-shadow 0.2s, background 0.4s ease;
 }
 
+/* Button hover */
 button:hover {
   transform: scale(1.05);
   background-image: linear-gradient(135deg, #00c6ff, #0072ff);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-}
-
-/* Zero button spans 2 columns */
-.zero {
-  grid-column: span 2;
 }
